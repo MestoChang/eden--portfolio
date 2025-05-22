@@ -24,6 +24,7 @@ const availableLocales = [
 const LanguageCard = ({ locale, onClick }) => {
   return (
     <Link
+      // FIXME 切換後應顯示原本頁面，不跳轉首頁
       href="/"
       locale={locale.code}
       className="bg-secondary hover:bg-background hover:text-primary flex w-full items-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
