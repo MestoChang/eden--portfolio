@@ -20,34 +20,18 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function RootLayout(props) {
-  const { children, params } = props;
-
-  // 確保 params 已經準備好
-  if (!params) {
-    notFound();
-  }
-
-  // 等待 params 準備完成
-  const resolvedParams = await Promise.resolve(params);
-  const locale = resolvedParams.locale;
-
-  if (!locale) {
-    notFound();
-  }
-
-  const messages = await getMessages(locale);
+export default async function LocaleLayout({ children, params }) {
+  const messages = await getMessages(params.locale);
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <html lang={locale} suppressHydrationWarning>
-        <body suppressHydrationWarning>
+    <html lang={params.locale} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
           <Header />
           <main>{children}</main>
-
           <Footer />
-        </body>
-      </html>
-    </NextIntlClientProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

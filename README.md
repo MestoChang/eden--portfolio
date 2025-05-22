@@ -5,43 +5,57 @@
 ## 專案結構
 
 ```
-├── app/
-│   ├── [locale]/           # 動態路由，處理多語系
+├── app/                    # Next.js 應用程式目錄
+│   ├── [locale]/          # 動態路由，處理多語系
 │   │   ├── layout.jsx     # 語系特定的 layout
-│   │   └── page.jsx       # 主頁面
-│   ├── layout.jsx         # 根層級 layout
-│   └── globals.css        # 全局樣式
-├── i18n/
-│   ├── navigation.js      # 導航相關設定
-│   ├── request.js         # 語系請求處理
-│   └── routing.js         # 路由設定
-├── messages/              # 語系檔案
-│   ├── en.json           # 英文翻譯
-│   └── zh-Hant.json      # 繁體中文翻譯
-├── middleware.js         # Next.js 中間件，處理語系重定向
-└── next.config.js        # Next.js 設定
+│   │   ├── page.jsx       # 主頁面
+│   │   ├── about/         # 關於頁面
+│   │   │   └── page.jsx
+│   │   └── projects/      # 作品頁面
+│   │       └── page.jsx
+│   ├── globals.css        # 全局樣式
+│   └── error.jsx          # 錯誤頁面
+├── components/            # React 組件
+│   ├── base/             # 基礎組件
+│   │   ├── Header.jsx    # 頁首
+│   │   └── Footer.jsx    # 頁尾
+│   ├── sections/         # 頁面區段組件
+│   │   ├── Hero.jsx      # 首頁英雄區段
+│   │   ├── About.jsx     # 關於區段
+│   │   ├── Projects.jsx  # 作品區段
+│   │   └── Contact.jsx   # 聯絡區段
+│   └── i18n/             # 多語系相關組件
+│       └── LanguageSwitcher.jsx
+├── i18n/                 # 多語系設定
+│   ├── navigation.js     # 導航相關設定
+│   ├── request.js        # 語系請求處理
+│   └── routing.js        # 路由設定
+├── messages/             # 語系檔案
+│   ├── en.json          # 英文翻譯
+│   └── zh-Hant.json     # 繁體中文翻譯
+├── public/              # 靜態資源
+│   └── flags/          # 國旗圖片
+├── .vscode/            # VS Code 設定
+│   └── settings.json   # 編輯器設定
+├── .next/              # Next.js 建置輸出
+├── node_modules/       # 依賴套件
+├── .gitignore         # Git 忽略檔案
+├── .prettierignore    # Prettier 忽略檔案
+├── .prettierrc.json   # Prettier 設定
+├── eslint.config.mjs  # ESLint 設定
+├── jsconfig.json      # JavaScript 設定
+├── middleware.js      # Next.js 中間件
+├── next.config.js     # Next.js 設定
+├── package.json       # 專案依賴
+├── package-lock.json  # 依賴版本鎖定
+└── postcss.config.mjs # PostCSS 設定
 ```
 
-## 檔案說明
+## 多語系開發指南
 
-### 語系相關檔案
+### 1. 新增頁面與組件
 
-- `i18n/routing.js`: 定義支援的語系和預設語系
-- `i18n/request.js`: 處理語系檔案的載入
-- `i18n/navigation.js`: 提供多語系導航相關的 hooks 和元件
-- `messages/*.json`: 各語系的翻譯檔案
-
-### 頁面相關檔案
-
-- `app/layout.jsx`: 根層級 layout，處理 HTML 結構
-- `app/[locale]/layout.jsx`: 語系特定的 layout，處理多語系提供者
-- `app/[locale]/page.jsx`: 主頁面，使用多語系功能
-
-## 新增頁面與多語系
-
-### 1. 新增頁面
-
-在 `app/[locale]` 目錄下新增頁面：
+1. 在 `app/[locale]` 目錄下新增頁面：
 
 ```jsx
 // app/[locale]/about/page.jsx
@@ -59,9 +73,7 @@ export default function AboutPage() {
 }
 ```
 
-### 2. 新增翻譯
-
-在 `messages` 目錄下的語系檔案中添加對應的翻譯：
+2. 在 `messages` 目錄下的語系檔案中添加對應的翻譯：
 
 ```json
 // messages/en.json
@@ -81,9 +93,28 @@ export default function AboutPage() {
 }
 ```
 
-### 3. 頁面導航
+### 2. 翻譯命名規範
 
-使用 `Link` 元件進行頁面導航：
+- 使用 PascalCase 作為組件/頁面的翻譯 key
+- 使用 camelCase 作為具體翻譯項的 key
+- 保持翻譯結構的一致性
+- 建議的翻譯結構：
+  ```json
+  {
+    "ComponentName": {
+      "title": "標題",
+      "description": "描述",
+      "section": {
+        "title": "區段標題",
+        "content": "區段內容"
+      }
+    }
+  }
+  ```
+
+### 3. 頁面導航與語系切換
+
+1. 使用 `Link` 元件進行頁面導航：
 
 ```jsx
 import { Link } from '@/i18n/navigation';
@@ -92,9 +123,7 @@ import { Link } from '@/i18n/navigation';
 <Link href="/about">About</Link>;
 ```
 
-### 4. 語系切換
-
-使用 `Link` 元件切換語系：
+2. 使用 `Link` 元件切換語系：
 
 ```jsx
 import { Link } from '@/i18n/navigation';
@@ -104,15 +133,49 @@ import { Link } from '@/i18n/navigation';
 <Link href="/" locale="zh-Hant">繁體中文</Link>
 ```
 
-## 開發注意事項
+### 4. 動態內容翻譯
 
-1. 所有頁面都應該放在 `app/[locale]` 目錄下
-2. 使用 `useTranslations` hook 來獲取翻譯內容
-3. 使用 `Link` 元件進行頁面導航和語系切換
-4. 新增翻譯時，確保所有語系檔案都包含相同的鍵值
-5. 使用 `t()` 函數時，傳入的鍵值必須存在於語系檔案中
+如果需要處理帶變數的翻譯：
 
-## 啟動專案
+```json
+// messages/zh-Hant.json
+{
+  "Component": {
+    "welcome": "歡迎，{name}！"
+  }
+}
+
+// 在組件中
+const t = useTranslations('Component');
+t('welcome', { name: '使用者' });
+```
+
+### 5. 常見問題處理
+
+1. 翻譯缺失：
+
+   - 檢查翻譯文件是否包含所有必要的 key
+   - 確保所有語言文件結構一致
+   - 使用 TypeScript 可以幫助檢查翻譯完整性
+
+2. 動態路由：
+
+   - 確保在 `app/[locale]` 目錄下創建頁面
+   - 使用 `useParams` 獲取當前語言設定
+
+3. 語言切換：
+   - 使用 `LanguageSwitcher` 組件
+   - 確保切換時保持在當前頁面
+
+### 6. 最佳實踐
+
+1. 保持翻譯文件結構清晰
+2. 使用有意義的 key 名稱
+3. 定期檢查翻譯完整性
+4. 在開發新功能時同步更新所有語言文件
+5. 使用 TypeScript 來確保類型安全
+
+## 開發
 
 ```bash
 # 安裝依賴
@@ -127,3 +190,10 @@ npm run build
 # 生產模式
 npm start
 ```
+
+## 技術棧
+
+- Next.js 14
+- React
+- Tailwind CSS
+- next-intl

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-
+import { HeroSection, ShowcaseSection } from '@/components/sections/index/index';
 const HomePage = () => {
   const t = useTranslations('Index');
 
@@ -12,6 +12,9 @@ const HomePage = () => {
         <h1 className="text-4xl font-bold">{t('title')}</h1>
         <p className="text-xl">{t('description')}</p>
       </div>
+
+      <HeroSection />
+      <ShowcaseSection />
     </div>
   );
 };

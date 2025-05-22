@@ -4,9 +4,18 @@
     "about": "About Me",
     "projects": "Projects"
   },
+  "Footer": {
+    "copyright": "Copyright © 2025"
+  },
   "Index": {
     "title": "Welcome",
-    "description": "This is a multilingual website built with Next.js"
+    "description": "This is a multilingual website built with Next.js",
+    "hero": {
+      "title": "Hero"
+    },
+    "showcase": {
+      "title": "Showcase"
+    }
   },
   "About": {
     "title": "About",
@@ -15,5 +24,15 @@
   "Projects": {
     "title": "Projects",
     "description": "This is a multilingual website built with Next.js"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "backHome": "Back to Home"
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "description": "Sorry, an error has occurred.",
+    "tryAgain": "Try Again"
   }
 }
