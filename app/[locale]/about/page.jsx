@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import Tineline from '@/components/sections/about/Tineline';
 
 const AboutMePage = () => {
   const t = useTranslations('About');
@@ -12,6 +13,7 @@ const AboutMePage = () => {
         <h1 className="text-4xl font-bold">{t('title')}</h1>
         <p className="text-xl">{t('description')}</p>
       </div>
+      <Tineline />
     </div>
   );
 };

@@ -10,17 +10,21 @@ const Header = () => {
     <header className="flex p-6">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between">
         <div>
-          <Link href="/" className="font-bold">
+          <Link href="/" className="text-xl font-bold">
             Website Name
           </Link>
         </div>
 
-        <ul className="flex gap-3">
+        <ul className="flex gap-5 rounded-full bg-gray-950/30 px-8 py-2">
           <li>
-            <Link href="/about">{t('about')}</Link>
+            <Link href="/about" className="link">
+              {t('about')}
+            </Link>
           </li>
           <li>
-            <Link href="/projects">{t('projects')}</Link>
+            <Link href="/projects" className="link">
+              {t('projects')}
+            </Link>
           </li>
         </ul>
 
