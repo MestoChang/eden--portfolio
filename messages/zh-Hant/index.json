@@ -1,0 +1,10 @@
+{
+  "title": "測試測試",
+  "description": "這是一個使用 Next.js 建構的多語系網站",
+  "hero": {
+    "title": "歡迎來到我的作品集"
+  },
+  "showcase": {
+    "title": "我的作品"
+  }
+}
