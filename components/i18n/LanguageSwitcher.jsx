@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, usePathname } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { AiOutlineGlobal } from 'react-icons/ai'; // 地球儀圖示
 import Image from 'next/image';
 
@@ -30,7 +30,7 @@ const LanguageCard = ({ locale, onClick }) => {
       onClick={onClick}
     >
       <Image src={locale.flagImg} alt={locale.label} width={16} height={16} />
-      {locale.label}
+      {/* {locale.label} */}
     </Link>
   );
 };
