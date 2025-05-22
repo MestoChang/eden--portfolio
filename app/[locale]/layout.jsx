@@ -2,6 +2,8 @@ import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import '../globals.css';
+import Header from '@/components/base/Header';
+import Footer from '@/components/base/Footer';
 
 async function getMessages(locale) {
   try {
@@ -38,7 +40,14 @@ export default async function RootLayout(props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <main>{children}</main>
+      <html lang={locale} suppressHydrationWarning>
+        <body suppressHydrationWarning>
+          <Header />
+          <main>{children}</main>
+
+          <Footer />
+        </body>
+      </html>
     </NextIntlClientProvider>
   );
 }
