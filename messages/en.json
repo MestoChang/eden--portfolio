@@ -1,6 +1,19 @@
 {
+  "Header": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects"
+  },
   "Index": {
     "title": "Welcome",
+    "description": "This is a multilingual website built with Next.js"
+  },
+  "About": {
+    "title": "About",
+    "description": "This is a multilingual website built with Next.js"
+  },
+  "Projects": {
+    "title": "Projects",
     "description": "This is a multilingual website built with Next.js"
   }
 }

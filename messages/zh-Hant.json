@@ -1,6 +1,19 @@
 {
+  "Header": {
+    "home": "首頁",
+    "about": "關於我",
+    "projects": "我的作品"
+  },
   "Index": {
     "title": "測試測試",
+    "description": "這是一個使用 Next.js 建構的多語系網站"
+  },
+  "About": {
+    "title": "關於我",
+    "description": "這是一個使用 Next.js 建構的多語系網站"
+  },
+  "Projects": {
+    "title": "我的作品",
     "description": "這是一個使用 Next.js 建構的多語系網站"
   }
 }
