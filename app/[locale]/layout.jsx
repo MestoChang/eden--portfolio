@@ -2,8 +2,7 @@ import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import '../globals.css';
-import Header from '@/components/base/Header';
-import Footer from '@/components/base/Footer';
+import { Header, Footer } from '@/components/base';
 
 async function getMessages(locale) {
   try {
