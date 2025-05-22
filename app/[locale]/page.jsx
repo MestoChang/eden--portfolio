@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { HeroSection, ShowcaseSection } from '@/components/sections/index/index';
+import { HeroSection, ShowcaseSection } from '@/components/sections/index-page/index';
+
 const HomePage = () => {
   const t = useTranslations('Index');
 
