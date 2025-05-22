@@ -1,10 +1,6 @@
 {
-  "HomePage": {
-    "title": "中文",
-    "about": "測試中"
-  },
   "Index": {
-    "title": "歡迎來到我的作品集",
+    "title": "測試測試",
     "description": "這是一個使用 Next.js 建構的多語系網站"
   }
 }

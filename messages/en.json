@@ -1,10 +1,6 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
-  },
   "Index": {
-    "title": "Welcome to My Portfolio",
+    "title": "Welcome",
     "description": "This is a multilingual website built with Next.js"
   }
 }

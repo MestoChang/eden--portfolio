@@ -38,7 +38,7 @@ export default async function RootLayout(props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
+      <main>{children}</main>
     </NextIntlClientProvider>
   );
 }
