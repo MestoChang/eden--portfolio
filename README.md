@@ -53,7 +53,9 @@ eden--portfolio/
 │   │   ├── projects/      # 專案頁面
 │   │   │   └── page.jsx
 │   │   ├── layout.jsx     # 語系特定的布局
-│   │   └── page.jsx       # 主頁面
+│   │   ├── page.jsx       # 主頁面
+│   │   ├── error.jsx      # 錯誤頁面
+│   │   └── not-found.jsx  # 404 頁面
 │   ├── globals.css        # 全局樣式
 │   └── layout.jsx         # 根布局
 ├── components/            # 可重用組件
@@ -67,28 +69,31 @@ eden--portfolio/
 │   │   └── Contact.jsx   # 聯絡區段
 │   └── i18n/             # 多語系相關組件
 │       └── LanguageSwitcher.jsx
-├── docs/                 # 文檔
-│   └── next-intl-setup.md # next-intl 設定指南
+├── i18n/                 # 多語系設定
+│   ├── navigation.js     # 導航相關設定
+│   ├── request.js        # 語系請求處理
+│   ├── routing.js        # 路由設定
+│   └── utils.js          # 工具函數
 ├── messages/             # 翻譯文件
 │   ├── en/              # 英文翻譯
 │   │   ├── common.json  # 通用翻譯
 │   │   ├── home.json    # 首頁翻譯
 │   │   ├── about.json   # 關於頁面翻譯
-│   │   └── projects.json # 專案頁面翻譯
+│   │   ├── projects.json # 專案頁面翻譯
+│   │   └── error.json   # 錯誤頁面翻譯
 │   └── zh-TW/           # 繁體中文翻譯
 │       ├── common.json
 │       ├── home.json
 │       ├── about.json
-│       └── projects.json
+│       ├── projects.json
+│       └── error.json
 ├── public/              # 靜態資源
 │   ├── images/         # 圖片資源
 │   └── fonts/          # 字體文件
-├── .vscode/           # VS Code 設定
-│   └── settings.json  # 編輯器設定
-├── middleware.js      # Next.js 中間件
-├── next.config.js     # Next.js 設定
-├── package.json       # 專案依賴
-├── postcss.config.js  # PostCSS 設定
+├── middleware.js       # Next.js 中間件
+├── next.config.js      # Next.js 設定
+├── package.json        # 專案依賴
+└── postcss.config.js   # PostCSS 設定
 ```
 
 ## 多語言設定
@@ -111,30 +116,43 @@ export const config = {
 };
 ```
 
-### 2. navigation.js
+### 2. i18n/routing.js
 
 ```javascript
-import { createSharedPathnamesNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
-export const { Link, redirect, usePathname, useRouter } = createSharedPathnamesNavigation({
+export const routing = defineRouting({
   locales: ['en', 'zh-TW'],
+  defaultLocale: 'en',
 });
 ```
 
-### 3. 翻譯文件結構
+### 3. i18n/utils.js
 
-```
-messages/
-├── en/
-│   ├── common.json
-│   ├── home.json
-│   ├── about.json
-│   └── projects.json
-└── zh-TW/
-    ├── common.json
-    ├── home.json
-    ├── about.json
-    └── projects.json
+```javascript
+import { notFound } from 'next/navigation';
+
+export async function getMessages(locale) {
+  try {
+    const messages = {
+      common: (await import(`../messages/${locale}/common.json`)).default,
+      home: (await import(`../messages/${locale}/home.json`)).default,
+      about: (await import(`../messages/${locale}/about.json`)).default,
+      projects: (await import(`../messages/${locale}/projects.json`)).default,
+      error: (await import(`../messages/${locale}/error.json`)).default,
+    };
+    return messages;
+  } catch (error) {
+    throw new Error(`Failed to load messages for locale: ${locale}`);
+  }
+}
+
+export function handleMessagesError(error) {
+  if (error instanceof Error) {
+    notFound();
+  }
+  throw error;
+}
 ```
 
 ### 使用翻譯
@@ -153,17 +171,20 @@ export default function MyComponent() {
 2. 使用導航：
 
 ```jsx
-import { Link } from '@/navigation';
+import { Link } from '@/i18n/navigation';
 
 // 在組件中
 <Link href="/about">About</Link>;
 ```
 
-### 添加新語言
+### 錯誤處理
 
-1. 在 `messages` 目錄下創建新的語言目錄
-2. 複製現有翻譯文件並翻譯內容
-3. 在 `middleware.js` 中添加新的語言代碼
+專案包含兩種錯誤頁面：
+
+1. `not-found.jsx`：處理 404 錯誤
+2. `error.jsx`：處理運行時錯誤
+
+這些頁面都支援多語言，並保持一致的視覺風格。
 
 ## 開發指南
 
