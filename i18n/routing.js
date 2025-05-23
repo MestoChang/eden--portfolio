@@ -1,9 +1,9 @@
 import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
-  // A list of all locales that are supported
-  locales: ['en', 'zh-Hant'],
+  // 支援的語言列表
+  locales: ['en', 'zh-TW'],
 
-  // Used when no locale matches
+  // 預設語言
   defaultLocale: 'en',
 });

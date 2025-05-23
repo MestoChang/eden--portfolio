@@ -1,0 +1,12 @@
+{
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "backHome": "Back to Home"
+  },
+  "Error": {
+    "title": "Something went wrong",
+    "description": "Sorry, an error has occurred.",
+    "tryAgain": "Try Again"
+  }
+}

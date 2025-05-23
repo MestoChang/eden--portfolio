@@ -1,0 +1,14 @@
+{
+  "title": "專案",
+  "description": "以下是我最近的一些專案",
+  "viewProject": "查看專案",
+  "technologies": "使用的技術",
+  "project1": {
+    "title": "專案一",
+    "description": "使用 React 和 Next.js 建構的現代網頁應用程式"
+  },
+  "project2": {
+    "title": "專案二",
+    "description": "使用 React、TypeScript 和 Node.js 的全端應用程式"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "Header": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects"
+  },
+  "Footer": {
+    "copyright": "Copyright © 2025"
+  }
+}

@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { AiOutlineGlobal } from 'react-icons/ai'; // 地球儀圖示
 import Image from 'next/image';
 
 const availableLocales = [
   // 支持語系
   {
-    code: 'zh-Hant',
+    code: 'zh-TW',
     label: '中文',
     flagsCode: '🇹🇼',
     flagImg: '/flags/taiwan_flag.png', // 國旗圖片路徑
@@ -21,11 +21,10 @@ const availableLocales = [
   },
 ];
 
-const LanguageCard = ({ locale, onClick }) => {
+const LanguageCard = ({ locale, currentPath, onClick }) => {
   return (
     <Link
-      // FIXME 切換後應顯示原本頁面，不跳轉首頁
-      href="/"
+      href={currentPath}
       locale={locale.code}
       className="bg-secondary hover:bg-background hover:text-primary flex w-full items-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
       onClick={onClick}
@@ -45,8 +44,8 @@ const LanguageCard = ({ locale, onClick }) => {
 
 const LanguageSwitcher = ({ locale }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const switcherRef = useRef(null);
+  const pathname = usePathname();
 
   // ✅ 點擊外部關閉邏輯
   useEffect(() => {
@@ -73,9 +72,14 @@ const LanguageSwitcher = ({ locale }) => {
 
       {/* click btn to show LanguageCard list */}
       {isOpen && (
-        <div className="absolute top-10 right-0 flex flex-col items-center gap-2">
+        <div className="bg-background absolute top-10 right-0 z-50 flex flex-col items-center gap-2 rounded-lg p-2 shadow-lg">
           {availableLocales.map(locale => (
-            <LanguageCard locale={locale} key={locale.code} onClick={() => setIsOpen(false)} />
+            <LanguageCard
+              key={locale.code}
+              locale={locale}
+              currentPath={pathname}
+              onClick={() => setIsOpen(false)}
+            />
           ))}
         </div>
       )}

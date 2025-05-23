@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import Tineline from '@/components/sections/about/Tineline';
+import Timeline from '@/components/sections/about/Timeline';
 
 const AboutMePage = () => {
-  const t = useTranslations('About');
+  const t = useTranslations('about');
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -13,7 +13,7 @@ const AboutMePage = () => {
         <h1 className="text-4xl font-bold">{t('title')}</h1>
         <p className="text-xl">{t('description')}</p>
       </div>
-      <Tineline />
+      <Timeline />
     </div>
   );
 };

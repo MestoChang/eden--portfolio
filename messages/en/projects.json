@@ -1,0 +1,14 @@
+{
+  "title": "Projects",
+  "description": "Here are some of my recent projects",
+  "viewProject": "View Project",
+  "technologies": "Technologies Used",
+  "project1": {
+    "title": "Project 1",
+    "description": "A modern web application built with React and Next.js"
+  },
+  "project2": {
+    "title": "Project 2",
+    "description": "A full-stack application using React, TypeScript, and Node.js"
+  }
+}

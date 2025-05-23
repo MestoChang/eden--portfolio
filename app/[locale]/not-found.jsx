@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function NotFound() {
-  const t = useTranslations('NotFound');
+  const t = useTranslations('error.NotFound');
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center">

@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 const Header = ({ locale }) => {
-  const t = useTranslations('Header');
+  const t = useTranslations('common.Header');
 
   return (
     <header className="flex p-6">

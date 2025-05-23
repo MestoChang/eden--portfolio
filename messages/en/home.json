@@ -1,0 +1,10 @@
+{
+  "title": "Welcome",
+  "description": "This is a multilingual website built with Next.js",
+  "hero": {
+    "title": "Hero"
+  },
+  "showcase": {
+    "title": "Showcase"
+  }
+}

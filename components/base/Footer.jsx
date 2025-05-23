@@ -9,7 +9,7 @@ const socialIcons = [
 ];
 
 const Footer = () => {
-  const t = useTranslations('Footer');
+  const t = useTranslations('common.Footer');
 
   return (
     <footer className="flex px-6 py-12">

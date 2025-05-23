@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 
 export default function Error({ error, reset }) {
-  const t = useTranslations('Error');
+  const t = useTranslations('error.Error');
 
   useEffect(() => {
     // 可以將錯誤記錄到錯誤報告服務
