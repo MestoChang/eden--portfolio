@@ -1,6 +1,21 @@
 # Multilingual Portfolio
 
-這是一個使用 Next.js 13+ 和 next-intl 建構的多語系作品集網站。
+這是一個使用 Next.js 15+ 和 next-intl 建構的多語系作品集網站。
+
+## 技術及版本
+
+- Next.js 15.3.2
+- React 19
+- Tailwind CSS 4.1.7
+- next-intl 4.1.0
+- react-icons 5.5.0
+
+## 安裝執行
+
+```bash
+npm install
+npm run dev
+```
 
 ## 專案結構
 
@@ -51,7 +66,7 @@
 └── postcss.config.mjs # PostCSS 設定
 ```
 
-## 多語系開發指南
+## 開發指南
 
 ### 1. 新增頁面與組件
 
@@ -174,26 +189,3 @@ t('welcome', { name: '使用者' });
 3. 定期檢查翻譯完整性
 4. 在開發新功能時同步更新所有語言文件
 5. 使用 TypeScript 來確保類型安全
-
-## 開發
-
-```bash
-# 安裝依賴
-npm install
-
-# 開發模式
-npm run dev
-
-# 建置
-npm run build
-
-# 生產模式
-npm start
-```
-
-## 技術棧
-
-- Next.js 14
-- React
-- Tailwind CSS
-- next-intl

@@ -3,7 +3,7 @@ import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
-const Header = () => {
+const Header = ({ locale }) => {
   const t = useTranslations('Header');
 
   return (
@@ -28,7 +28,7 @@ const Header = () => {
           </li>
         </ul>
 
-        <LanguageSwitcher />
+        <LanguageSwitcher locale={locale} />
       </nav>
     </header>
   );

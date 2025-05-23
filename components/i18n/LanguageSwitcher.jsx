@@ -30,13 +30,20 @@ const LanguageCard = ({ locale, onClick }) => {
       className="bg-secondary hover:bg-background hover:text-primary flex w-full items-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
       onClick={onClick}
     >
-      <Image src={locale.flagImg} alt={locale.label} width={16} height={16} />
-      {/* {locale.label} */}
+      <Image
+        src={locale.flagImg}
+        alt={locale.label}
+        width={12}
+        height={12}
+        className="h-auto w-4"
+        // tailwind: w-5 = 20px
+      />
+      {locale.label}
     </Link>
   );
 };
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ locale }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const switcherRef = useRef(null);
@@ -61,7 +68,7 @@ const LanguageSwitcher = () => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <AiOutlineGlobal />
-        {/* <span>{displayLabel}</span> */}
+        <span>{availableLocales.find(l => l.code === locale)?.label ?? locale}</span>
       </button>
 
       {/* click btn to show LanguageCard list */}

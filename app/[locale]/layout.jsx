@@ -20,13 +20,17 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function LocaleLayout({ children, params }) {
-  const messages = await getMessages(params.locale);
+  const awaitedParams = await params;
+  const messages = await getMessages(awaitedParams.locale);
+
+  const locale = awaitedParams.locale; // 由 Next.js 路由自動帶入
+  console.log('switch locale to:', locale);
 
   return (
-    <html lang={params.locale} suppressHydrationWarning>
+    <html lang={awaitedParams.locale} suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <NextIntlClientProvider locale={params.locale} messages={messages}>
-          <Header />
+        <NextIntlClientProvider locale={awaitedParams.locale} messages={messages}>
+          <Header locale={locale} />
           <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
