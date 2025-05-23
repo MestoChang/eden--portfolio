@@ -1,191 +1,201 @@
-# Multilingual Portfolio
+# Eden Portfolio
 
-這是一個使用 Next.js 15+ 和 next-intl 建構的多語系作品集網站。
+這是一個使用 Next.js 13+ 和 next-intl 建構的多語言個人作品集網站。
 
-## 技術及版本
+## 功能特點
 
-- Next.js 15.3.2
-- React 19
-- Tailwind CSS 4.1.7
-- next-intl 4.1.0
-- react-icons 5.5.0
+- 🌐 多語言支援（英文和繁體中文）
+- 🎨 現代化的 UI 設計
+- 📱 響應式設計
+- ⚡ 使用 Next.js 13+ App Router
+- 🎯 SEO 優化
+- 🌙 深色模式支援
 
-## 安裝執行
+## 技術棧
+
+- Next.js 13+
+- React
+- Tailwind CSS
+- next-intl
+- TypeScript
+
+## 開始使用
+
+1. 克隆專案：
+
+```bash
+git clone https://github.com/yourusername/eden--portfolio.git
+cd eden--portfolio
+```
+
+2. 安裝依賴：
 
 ```bash
 npm install
+```
+
+3. 啟動開發伺服器：
+
+```bash
 npm run dev
 ```
+
+4. 在瀏覽器中打開 [http://localhost:3000](http://localhost:3000)
 
 ## 專案結構
 
 ```
+eden--portfolio/
 ├── app/                    # Next.js 應用程式目錄
-│   ├── [locale]/          # 動態路由，處理多語系
-│   │   ├── layout.jsx     # 語系特定的 layout
-│   │   ├── page.jsx       # 主頁面
+│   ├── [locale]/          # 多語言路由
 │   │   ├── about/         # 關於頁面
 │   │   │   └── page.jsx
-│   │   └── projects/      # 作品頁面
-│   │       └── page.jsx
+│   │   ├── projects/      # 專案頁面
+│   │   │   └── page.jsx
+│   │   ├── layout.jsx     # 語系特定的布局
+│   │   └── page.jsx       # 主頁面
 │   ├── globals.css        # 全局樣式
-│   └── error.jsx          # 錯誤頁面
-├── components/            # React 組件
+│   └── layout.jsx         # 根布局
+├── components/            # 可重用組件
 │   ├── base/             # 基礎組件
 │   │   ├── Header.jsx    # 頁首
 │   │   └── Footer.jsx    # 頁尾
 │   ├── sections/         # 頁面區段組件
 │   │   ├── Hero.jsx      # 首頁英雄區段
 │   │   ├── About.jsx     # 關於區段
-│   │   ├── Projects.jsx  # 作品區段
+│   │   ├── Projects.jsx  # 專案區段
 │   │   └── Contact.jsx   # 聯絡區段
 │   └── i18n/             # 多語系相關組件
 │       └── LanguageSwitcher.jsx
-├── i18n/                 # 多語系設定
-│   ├── navigation.js     # 導航相關設定
-│   ├── request.js        # 語系請求處理
-│   └── routing.js        # 路由設定
-├── messages/             # 語系檔案
-│   ├── en.json          # 英文翻譯
-│   └── zh-Hant.json     # 繁體中文翻譯
+├── docs/                 # 文檔
+│   └── next-intl-setup.md # next-intl 設定指南
+├── messages/             # 翻譯文件
+│   ├── en/              # 英文翻譯
+│   │   ├── common.json  # 通用翻譯
+│   │   ├── home.json    # 首頁翻譯
+│   │   ├── about.json   # 關於頁面翻譯
+│   │   └── projects.json # 專案頁面翻譯
+│   └── zh-TW/           # 繁體中文翻譯
+│       ├── common.json
+│       ├── home.json
+│       ├── about.json
+│       └── projects.json
 ├── public/              # 靜態資源
-│   └── flags/          # 國旗圖片
-├── .vscode/            # VS Code 設定
-│   └── settings.json   # 編輯器設定
-├── .next/              # Next.js 建置輸出
-├── node_modules/       # 依賴套件
-├── .gitignore         # Git 忽略檔案
-├── .prettierignore    # Prettier 忽略檔案
-├── .prettierrc.json   # Prettier 設定
-├── eslint.config.mjs  # ESLint 設定
-├── jsconfig.json      # JavaScript 設定
+│   ├── images/         # 圖片資源
+│   └── fonts/          # 字體文件
+├── .vscode/           # VS Code 設定
+│   └── settings.json  # 編輯器設定
 ├── middleware.js      # Next.js 中間件
 ├── next.config.js     # Next.js 設定
 ├── package.json       # 專案依賴
-├── package-lock.json  # 依賴版本鎖定
-└── postcss.config.mjs # PostCSS 設定
+├── postcss.config.js  # PostCSS 設定
 ```
 
-## 開發指南
+## 多語言設定
 
-### 1. 新增頁面與組件
+專案使用 next-intl 進行多語言管理。主要設定文件包括：
 
-1. 在 `app/[locale]` 目錄下新增頁面：
+### 1. middleware.js
+
+```javascript
+import createMiddleware from 'next-intl/middleware';
+
+export default createMiddleware({
+  locales: ['en', 'zh-TW'],
+  defaultLocale: 'en',
+  localePrefix: 'always',
+});
+
+export const config = {
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
+};
+```
+
+### 2. navigation.js
+
+```javascript
+import { createSharedPathnamesNavigation } from 'next-intl/navigation';
+
+export const { Link, redirect, usePathname, useRouter } = createSharedPathnamesNavigation({
+  locales: ['en', 'zh-TW'],
+});
+```
+
+### 3. 翻譯文件結構
+
+```
+messages/
+├── en/
+│   ├── common.json
+│   ├── home.json
+│   ├── about.json
+│   └── projects.json
+└── zh-TW/
+    ├── common.json
+    ├── home.json
+    ├── about.json
+    └── projects.json
+```
+
+### 使用翻譯
+
+1. 在組件中使用：
 
 ```jsx
-// app/[locale]/about/page.jsx
 import { useTranslations } from 'next-intl';
 
-export default function AboutPage() {
-  const t = useTranslations('About');
-
-  return (
-    <div>
-      <h1>{t('title')}</h1>
-      <p>{t('description')}</p>
-    </div>
-  );
+export default function MyComponent() {
+  const t = useTranslations('namespace');
+  return <h1>{t('key')}</h1>;
 }
 ```
 
-2. 在 `messages` 目錄下的語系檔案中添加對應的翻譯：
-
-```json
-// messages/en.json
-{
-  "About": {
-    "title": "About Us",
-    "description": "This is the about page"
-  }
-}
-
-// messages/zh-Hant.json
-{
-  "About": {
-    "title": "關於我們",
-    "description": "這是關於頁面"
-  }
-}
-```
-
-### 2. 翻譯命名規範
-
-- 使用 PascalCase 作為組件/頁面的翻譯 key
-- 使用 camelCase 作為具體翻譯項的 key
-- 保持翻譯結構的一致性
-- 建議的翻譯結構：
-  ```json
-  {
-    "ComponentName": {
-      "title": "標題",
-      "description": "描述",
-      "section": {
-        "title": "區段標題",
-        "content": "區段內容"
-      }
-    }
-  }
-  ```
-
-### 3. 頁面導航與語系切換
-
-1. 使用 `Link` 元件進行頁面導航：
+2. 使用導航：
 
 ```jsx
-import { Link } from '@/i18n/navigation';
+import { Link } from '@/navigation';
 
-// 在元件中使用
+// 在組件中
 <Link href="/about">About</Link>;
 ```
 
-2. 使用 `Link` 元件切換語系：
+### 添加新語言
 
-```jsx
-import { Link } from '@/i18n/navigation';
+1. 在 `messages` 目錄下創建新的語言目錄
+2. 複製現有翻譯文件並翻譯內容
+3. 在 `middleware.js` 中添加新的語言代碼
 
-// 在元件中使用
-<Link href="/" locale="en">English</Link>
-<Link href="/" locale="zh-Hant">繁體中文</Link>
+## 開發指南
+
+### 1. 新增頁面
+
+- 在 `app/[locale]` 目錄下創建新頁面
+- 確保在 `messages` 目錄中添加對應的翻譯
+
+### 2. 新增組件
+
+- 在 `components` 目錄下創建新組件
+- 使用 `useTranslations` 處理多語言內容
+
+### 3. 最佳實踐
+
+- 保持翻譯文件結構一致
+- 使用有意義的翻譯 key
+- 定期檢查翻譯完整性
+- 在開發新功能時同步更新所有語言文件
+
+## 部署
+
+專案可以部署到任何支援 Next.js 的平台，如 Vercel、Netlify 等。
+
+```bash
+npm run build
 ```
 
-### 4. 動態內容翻譯
+## 貢獻
 
-如果需要處理帶變數的翻譯：
+歡迎提交 Pull Request 或開 Issue 來改進專案。
 
-```json
-// messages/zh-Hant.json
-{
-  "Component": {
-    "welcome": "歡迎，{name}！"
-  }
-}
+## 授權
 
-// 在組件中
-const t = useTranslations('Component');
-t('welcome', { name: '使用者' });
-```
-
-### 5. 常見問題處理
-
-1. 翻譯缺失：
-
-   - 檢查翻譯文件是否包含所有必要的 key
-   - 確保所有語言文件結構一致
-   - 使用 TypeScript 可以幫助檢查翻譯完整性
-
-2. 動態路由：
-
-   - 確保在 `app/[locale]` 目錄下創建頁面
-   - 使用 `useParams` 獲取當前語言設定
-
-3. 語言切換：
-   - 使用 `LanguageSwitcher` 組件
-   - 確保切換時保持在當前頁面
-
-### 6. 最佳實踐
-
-1. 保持翻譯文件結構清晰
-2. 使用有意義的 key 名稱
-3. 定期檢查翻譯完整性
-4. 在開發新功能時同步更新所有語言文件
-5. 使用 TypeScript 來確保類型安全
+MIT License

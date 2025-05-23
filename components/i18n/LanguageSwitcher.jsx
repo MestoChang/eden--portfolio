@@ -72,7 +72,7 @@ const LanguageSwitcher = ({ locale }) => {
 
       {/* click btn to show LanguageCard list */}
       {isOpen && (
-        <div className="bg-background absolute top-10 right-0 z-50 flex flex-col items-center gap-2 rounded-lg p-2 shadow-lg">
+        <div className="absolute top-10 right-0 z-50 flex flex-col items-center gap-2 rounded-lg shadow-lg">
           {availableLocales.map(locale => (
             <LanguageCard
               key={locale.code}
