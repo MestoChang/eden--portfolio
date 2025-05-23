@@ -21,3 +21,16 @@ export function handleMessagesError(error) {
   }
   throw error;
 }
+
+// 錯誤處理工具函數
+export function handleError(error, locale) {
+  if (error instanceof Error) {
+    // 如果是找不到頁面的錯誤
+    if (error.message.includes('Failed to load messages for locale')) {
+      notFound();
+    }
+    // 其他錯誤則拋出，由 error.jsx 處理
+    throw error;
+  }
+  return null;
+}
