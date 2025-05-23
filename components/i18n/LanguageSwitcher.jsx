@@ -26,7 +26,7 @@ const LanguageCard = ({ locale, currentPath, onClick }) => {
     <Link
       href={currentPath}
       locale={locale.code}
-      className="bg-secondary hover:bg-background hover:text-primary flex w-full items-center justify-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
+      className="bg-secondary/50 hover:bg-background/50 hover:text-primary flex w-full items-center justify-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
       onClick={onClick}
     >
       <Image
@@ -72,7 +72,7 @@ const LanguageSwitcher = ({ locale }) => {
 
       {/* click btn to show LanguageCard list */}
       {isOpen && (
-        <div className="absolute top-10 right-0 z-50 flex w-full flex-col items-center gap-2 rounded-lg shadow-lg">
+        <div className="bg-background absolute top-10 right-0 z-50 flex w-full flex-col items-center gap-2 rounded-lg shadow-lg backdrop-blur-sm">
           {availableLocales.map(locale => (
             <LanguageCard
               key={locale.code}

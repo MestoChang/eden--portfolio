@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+/* Note: for dev delete later */
+* {
+  @apply bg-teal-800/10;
+}
+
 @theme {
   --color-primary: #2fff7f;
   --color-secondary: #23272e;
@@ -9,10 +14,21 @@
   --color-primary-gradient: linear-gradient(90deg, #2fff7f 0%, #0be881 100%);
 }
 
+/* html style start =====  */
+html,
 body {
   @apply bg-background text-foreground;
 }
 
+.section {
+  @apply relative flex min-h-fit w-full items-center justify-center p-6;
+}
+
+/* html style end =====  */
+
+/* element style start ===== */
 .link {
   @apply hover:text-primary transition-all duration-300 hover:underline;
 }
+
+/* element style end ===== */

@@ -5,9 +5,9 @@ const HeroSection = () => {
   const t = useTranslations('home.hero');
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1>{t('title')}</h1>
-    </div>
+    <section className="section">
+      <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">{t('title')}</h1>
+    </section>
   );
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 
-const ShowcaseSection = () => {
-  const t = useTranslations('home.showcase');
+const TechStack = () => {
+  const t = useTranslations('home.techStack');
 
   return (
     <section className="section">
@@ -11,4 +11,4 @@ const ShowcaseSection = () => {
   );
 };
 
-export default ShowcaseSection;
+export default TechStack;
