@@ -26,7 +26,7 @@ const LanguageCard = ({ locale, currentPath, onClick }) => {
     <Link
       href={currentPath}
       locale={locale.code}
-      className="bg-secondary hover:bg-background hover:text-primary flex w-full items-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
+      className="bg-secondary hover:bg-background hover:text-primary flex w-full items-center justify-center gap-2 rounded px-4 py-2 text-sm text-white transition-all"
       onClick={onClick}
     >
       <Image
@@ -61,9 +61,9 @@ const LanguageSwitcher = ({ locale }) => {
   }, []);
 
   return (
-    <div className="relative" ref={switcherRef}>
+    <div className="relative w-fit min-w-24" ref={switcherRef}>
       <button
-        className="flex cursor-pointer items-center gap-1 px-4 py-2 text-sm"
+        className="flex w-full cursor-pointer items-center justify-center gap-1 px-4 py-2 text-sm"
         onClick={() => setIsOpen(!isOpen)}
       >
         <AiOutlineGlobal />
@@ -72,7 +72,7 @@ const LanguageSwitcher = ({ locale }) => {
 
       {/* click btn to show LanguageCard list */}
       {isOpen && (
-        <div className="absolute top-10 right-0 z-50 flex flex-col items-center gap-2 rounded-lg shadow-lg">
+        <div className="absolute top-10 right-0 z-50 flex w-full flex-col items-center gap-2 rounded-lg shadow-lg">
           {availableLocales.map(locale => (
             <LanguageCard
               key={locale.code}
