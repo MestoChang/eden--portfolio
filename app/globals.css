@@ -20,6 +20,19 @@ body {
   @apply bg-background text-foreground;
 }
 
+label {
+  @apply mb-2 block;
+}
+
+input,
+textarea {
+  @apply w-full rounded-md bg-gray-800/50 px-4 py-4 text-sm placeholder:text-teal-100/50 md:text-base;
+}
+
+.cta-button {
+  @apply bg-background relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-gray-700 px-4 py-4;
+}
+
 .section {
   @apply relative flex min-h-fit w-full items-center justify-center p-6;
 }

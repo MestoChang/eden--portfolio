@@ -1,6 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import Header from '@/components/base/Header';
-import Footer from '@/components/base/Footer';
+import { Header, Footer } from '@/components/base';
 import { getMessages, handleMessagesError } from '@/i18n/utils';
 
 import '../globals.css';

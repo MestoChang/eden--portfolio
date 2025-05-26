@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import Timeline from '@/components/sections/about/Timeline';
+import { Timeline, Contact } from '@/components/sections/about';
 
 const AboutMePage = () => {
   const t = useTranslations('about');
@@ -14,6 +14,7 @@ const AboutMePage = () => {
         <p className="text-xl">{t('description')}</p>
       </div>
       <Timeline />
+      <Contact />
     </div>
   );
 };

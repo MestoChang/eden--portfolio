@@ -11,6 +11,12 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.0.7",
+    "@react-three/fiber": "^9.1.2",
+    "gsap": "^3.13.0",
+    "three": "^0.176.0",
     "class-variance-authority": "^0.7.1",
     "next": "15.3.2",
     "next-intl": "^4.1.0",
