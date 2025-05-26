@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import LanguageSwitcher from '../i18n/LanguageSwitcher';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { HiMenu, HiX } from 'react-icons/hi';
+import useClickOutside from '@/utils/hooks/useClickOutside';
 
 const Header = ({ locale }) => {
   const t = useTranslations('common.Header');
@@ -12,23 +13,12 @@ const Header = ({ locale }) => {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // click outside to close menu
-  useEffect(() => {
-    const handleClickOutside = event => {
-      if (
-        isMenuOpen &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        !buttonRef.current.contains(event.target)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isMenuOpen]);
+  // 使用 useClickOutside 處理點擊外部關閉
+  useClickOutside(menuRef, event => {
+    if (isMenuOpen && buttonRef.current && !buttonRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  });
 
   return (
     <header className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-sm">
