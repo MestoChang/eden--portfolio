@@ -4,6 +4,14 @@ import { getMessages, handleMessagesError } from '@/i18n/utils';
 
 import '../globals.css';
 
+/**
+ * 多語言布局元件
+ * 負責處理多語言相關的設定和布局
+ * 包括：
+ * - 設定當前語言
+ * - 載入對應語言的翻譯
+ * - 提供語言切換功能
+ */
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'zh-TW' }];
 }

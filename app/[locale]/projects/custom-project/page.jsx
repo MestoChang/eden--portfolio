@@ -1,5 +1,18 @@
 import { customProject } from './data';
 
+/**
+ * 自訂專案頁面
+ * 這是一個完全自訂的專案頁面，不依賴於動態路由
+ *
+ * 特點：
+ * - 獨立的資料管理
+ * - 完全自訂的頁面結構
+ * - 支援多語系內容
+ * - 可以根據需求自由設計
+ *
+ * @param {Object} params - 路由參數
+ * @param {string} params.locale - 當前語言設定
+ */
 export default function CustomProjectPage({ params }) {
   const locale = params.locale || 'zh-TW';
 
