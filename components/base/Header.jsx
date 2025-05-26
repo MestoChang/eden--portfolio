@@ -36,12 +36,12 @@ const Header = ({ locale }) => {
         {/* Logo */}
         <div className="min-w-fit">
           <Link href="/" className="text-base font-bold md:text-xl">
-            Website Name
+            Website
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden gap-5 rounded-full bg-gray-950/30 px-8 py-2 md:flex">
+        <ul className="hidden gap-5 rounded-full bg-gray-950/40 px-8 py-2 md:flex">
           <li>
             <Link href="/about" className="link">
               {t('about')}
@@ -72,7 +72,7 @@ const Header = ({ locale }) => {
         {isMenuOpen && (
           <div
             ref={menuRef}
-            className="absolute top-full left-0 w-full bg-gray-900 p-4 shadow-lg md:hidden"
+            className="absolute top-full left-0 w-full bg-gray-900/80 p-4 shadow-lg backdrop-blur-sm md:hidden"
           >
             <ul className="flex flex-col gap-4">
               <li>
@@ -86,7 +86,7 @@ const Header = ({ locale }) => {
                 </Link>
               </li>
               <li className="border-t border-gray-200 pt-4 dark:border-gray-700">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-end">
                   <LanguageSwitcher locale={locale} />
                 </div>
               </li>

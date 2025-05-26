@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12">
+      <div className="mx-auto w-full max-w-6xl px-4 py-8 text-xs md:px-6 md:py-12">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* Social Icons */}
           <div className="flex gap-4">
@@ -22,18 +22,16 @@ const Footer = () => {
                 href={icon.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-all"
+                className="hover:text-primary text-base transition-all md:text-xl"
                 aria-label={`Visit ${icon.href}`}
               >
-                <icon.icon size={24} />
+                <icon.icon />
               </a>
             ))}
           </div>
 
           {/* Copyright */}
-          <span className="text-center text-sm text-gray-600 md:text-base dark:text-gray-400">
-            {t('copyright')}
-          </span>
+          <span className="text-center text-gray-600 dark:text-gray-400">{t('copyright')}</span>
         </div>
       </div>
     </footer>

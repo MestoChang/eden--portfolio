@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 
 /* Note: for dev delete later */
-* {
+/* * {
   @apply bg-teal-800/10;
-}
+} */
 
 @theme {
   --color-primary: #2fff7f;
