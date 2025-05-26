@@ -1,12 +1,12 @@
 {
   "NotFound": {
-    "title": "Page Not Foundddddddddddddddd",
-    "description": "The page you are looking for does not exist.",
+    "title": "Are you lost?",
+    "description": "May you lose your way to find me",
     "backHome": "Back to Home"
   },
   "Error": {
-    "title": "Something went wrong!!!!!!!!!!!!",
-    "description": "An unexpected error occurred. Please try again later.",
+    "title": "Something went wrong",
+    "description": "Life is full of ups and downs",
     "tryAgain": "Try Again",
     "backHome": "Back to Home"
   }

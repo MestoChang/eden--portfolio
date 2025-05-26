@@ -1,12 +1,12 @@
 {
   "NotFound": {
-    "title": "找不到頁面!!!!!!!",
-    "description": "您所尋找的頁面不存在。",
+    "title": "你迷路了嗎？",
+    "description": "願你迷路到我身旁",
     "backHome": "返回首頁"
   },
   "Error": {
-    "title": "發生錯誤!!!!!！",
-    "description": "發生未預期的錯誤，請稍後再試。",
+    "title": "壞了壞了",
+    "description": "人生不如意十之八九",
     "tryAgain": "重試",
     "backHome": "返回首頁"
   }
