@@ -3,11 +3,14 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { getAllProjects } from './[slug]/data';
 
 const ProjectsPage = () => {
   const t = useTranslations('projects');
   const projects = getAllProjects();
+  const params = useParams();
+  const locale = params.locale || 'zh-TW';
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -24,10 +27,10 @@ const ProjectsPage = () => {
           >
             <div className="h-48 w-full bg-gradient-to-r from-blue-500 to-purple-500" />
             <div className="p-6">
-              <h2 className="mb-2 text-xl font-semibold">{project.title['zh-TW']}</h2>
-              <p className="mb-4 text-gray-600">{project.description['zh-TW']}</p>
+              <h2 className="mb-2 text-xl font-semibold">{project.title[locale]}</h2>
+              <p className="mb-4 text-gray-600">{project.description[locale]}</p>
               <div className="mb-4 flex flex-wrap gap-2">
-                {project.metadata.tags['zh-TW'].map(tag => (
+                {project.metadata.tags[locale].map(tag => (
                   <span key={tag} className="tag">
                     {tag}
                   </span>
