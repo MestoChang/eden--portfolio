@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { getAllProjects } from './[slug]/data';
 import ProjectCard from '@/components/pages/ProjectCard';
