@@ -61,17 +61,17 @@ const Header = ({ locale }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-sm">
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between p-4">
+    <header className="bg-background/80 border-secondary sticky top-0 z-50 border-b backdrop-blur-sm">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between p-6">
         {/* 網站標誌 */}
         <div className="min-w-fit">
-          <Link href="/" className="text-base font-bold md:text-xl">
+          <Link href="/" className="text-foreground text-base font-bold md:text-xl">
             Website
           </Link>
         </div>
 
         {/* 桌面版導航選單 */}
-        <ul className="hidden gap-5 rounded-full bg-gray-950/40 px-8 py-2 md:flex">
+        <ul className="bg-secondary/40 hidden gap-5 rounded-full px-8 py-2 md:flex">
           {renderNavItems()}
         </ul>
 
@@ -83,7 +83,7 @@ const Header = ({ locale }) => {
         {/* 移動版選單按鈕 */}
         <button
           ref={buttonRef}
-          className="block cursor-pointer md:hidden"
+          className="text-foreground block cursor-pointer md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -94,11 +94,11 @@ const Header = ({ locale }) => {
         {isMenuOpen && (
           <div
             ref={menuRef}
-            className="absolute top-full left-0 w-full bg-gray-900/80 p-4 shadow-lg backdrop-blur-sm md:hidden"
+            className="bg-background/80 border-secondary absolute top-full left-0 w-full border-b p-4 shadow-lg backdrop-blur-sm md:hidden"
           >
             <ul className="flex flex-col gap-4">
               {renderNavItems(true)}
-              <li className="border-t border-gray-200 pt-4 dark:border-gray-700">
+              <li className="border-secondary border-t pt-4">
                 <div className="flex items-center justify-end">
                   <LanguageSwitcher locale={locale} />
                 </div>

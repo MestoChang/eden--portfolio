@@ -3,7 +3,7 @@ import React from 'react';
 
 const Timeline = () => {
   return (
-    <div className="min-h-screen">
+    <div className="section min-h-screen">
       <TitleHeader title="Timeline" />
     </div>
   );

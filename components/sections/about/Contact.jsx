@@ -55,7 +55,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex items-center justify-center">
+    <section id="contact" className="section">
       <div className="h-full w-full px-5 md:px-10">
         {/* 表單標題 */}
         <TitleHeader
@@ -68,7 +68,9 @@ const Contact = () => {
           <form ref={formRef} onSubmit={handleSubmit} className="flex w-full flex-col gap-7">
             {/* 姓名輸入 */}
             <div>
-              <label htmlFor="name">Your name</label>
+              <label htmlFor="name" className="text-foreground">
+                Your name
+              </label>
               <input
                 type="text"
                 id="name"
@@ -77,12 +79,15 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="What's your good name?"
                 required
+                className="bg-secondary/50 text-foreground placeholder:text-foreground/50 w-full rounded-md px-4 py-4 text-sm md:text-base"
               />
             </div>
 
             {/* 電子郵件輸入 */}
             <div>
-              <label htmlFor="email">Your Email</label>
+              <label htmlFor="email" className="text-foreground">
+                Your Email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -91,12 +96,15 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="What's your email address?"
                 required
+                className="bg-secondary/50 text-foreground placeholder:text-foreground/50 w-full rounded-md px-4 py-4 text-sm md:text-base"
               />
             </div>
 
             {/* 訊息輸入 */}
             <div>
-              <label htmlFor="message">Your Message</label>
+              <label htmlFor="message" className="text-foreground">
+                Your Message
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -105,11 +113,16 @@ const Contact = () => {
                 placeholder="How can I help you?"
                 rows="5"
                 required
+                className="bg-secondary/50 text-foreground placeholder:text-foreground/50 w-full rounded-md px-4 py-4 text-sm md:text-base"
               />
             </div>
 
             {/* 提交按鈕 */}
-            <button type="submit" disabled={loading} className="cta-button">
+            <button
+              type="submit"
+              disabled={loading}
+              className="cta-button bg-background hover:bg-primary hover:text-background transition-all duration-300"
+            >
               {loading ? 'Sending...' : 'Send Message'}
             </button>
           </form>

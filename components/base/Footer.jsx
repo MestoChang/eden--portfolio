@@ -43,7 +43,7 @@ const Footer = () => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-primary text-base transition-all md:text-xl"
+        className="text-foreground hover:text-primary text-base transition-all md:text-xl"
         aria-label={`Visit ${label}`}
       >
         <Icon />
@@ -52,14 +52,14 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900/80 backdrop-blur-sm">
-      <div className="mx-auto w-full max-w-6xl px-4 py-8 text-xs md:px-6 md:py-12">
+    <footer className="bg-background/80 border-secondary border-t backdrop-blur-sm">
+      <div className="mx-auto w-full max-w-6xl px-6 py-8 text-xs md:py-12">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* 社交媒體圖標區域 */}
           <div className="flex gap-4">{renderSocialIcons()}</div>
 
           {/* 版權信息 */}
-          <span className="text-center text-gray-600 dark:text-gray-400">{t('copyright')}</span>
+          <span className="text-foreground/60 text-center">{t('copyright')}</span>
         </div>
       </div>
     </footer>
