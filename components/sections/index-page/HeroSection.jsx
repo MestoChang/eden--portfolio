@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   return (
     <section className="section">
-      <TitleHeader title={t('title')} sub="💬 Have questions or ideas? Let’s talk! 🚀" />
+      <TitleHeader title={t('title')} />
     </section>
   );
 };
