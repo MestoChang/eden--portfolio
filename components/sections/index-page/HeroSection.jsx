@@ -6,8 +6,13 @@ const HeroSection = () => {
   const t = useTranslations('home.hero');
 
   return (
-    <section className="section">
+    <section className="section flex-col gap-8">
       <TitleHeader title={t('title')} />
+
+      <div className="flex items-center gap-3">
+        <button className="primary-button">Primary</button>
+        <button className="secondary-button">Secondary</button>
+      </div>
     </section>
   );
 };

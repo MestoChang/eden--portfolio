@@ -7,7 +7,10 @@
 
 @theme {
   --color-primary: #2fff7f;
-  --color-secondary: #23272e;
+  --color-primary-dark: #0be881;
+  --color-primary-text: #223c3b;
+  --color-secondary: #223c3b;
+  --color-secondary-dark: #101c1c;
   --color-danger: #ff4d4f;
   --color-background: #10151a;
   --color-foreground: #ededed;
@@ -24,18 +27,17 @@ label {
   @apply mb-2 block;
 }
 
-input,
+input {
+  @apply placeholder:text-foreground/50 bg-secondary/20 ring-primary-dark w-full rounded-full px-6 py-3 text-sm focus:ring-2 focus:outline-none md:text-base;
+}
+
 textarea {
-  @apply w-full rounded-md bg-gray-800/50 px-4 py-4 text-sm placeholder:text-teal-100/50 md:text-base;
+  @apply placeholder:text-foreground/50 bg-secondary/20 ring-primary-dark w-full rounded-md px-6 py-3 text-sm focus:ring-2 focus:outline-none md:text-base;
 }
 
 /* html style end =====  */
 
 /* element style start ===== */
-
-.cta-button {
-  @apply bg-background relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-gray-700 px-4 py-4;
-}
 
 .section {
   @apply relative flex min-h-fit w-full items-center justify-center p-6;
@@ -47,6 +49,14 @@ textarea {
 
 .link {
   @apply hover:text-primary transition-all duration-300 hover:underline;
+}
+
+.primary-button {
+  @apply bg-primary text-primary-text cursor-pointer rounded-full px-4 py-2 transition-all duration-300 hover:opacity-80;
+}
+
+.secondary-button {
+  @apply bg-secondary text-foreground cursor-pointer rounded-full px-4 py-2 transition-all duration-300 hover:opacity-80;
 }
 
 /* element style end ===== */

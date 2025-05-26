@@ -118,11 +118,7 @@ const Contact = () => {
             </div>
 
             {/* 提交按鈕 */}
-            <button
-              type="submit"
-              disabled={loading}
-              className="cta-button bg-background hover:bg-primary hover:text-background transition-all duration-300"
-            >
+            <button type="submit" disabled={loading} className="secondary-button">
               {loading ? 'Sending...' : 'Send Message'}
             </button>
           </form>

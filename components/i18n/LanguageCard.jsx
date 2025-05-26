@@ -6,7 +6,7 @@ export default function LanguageCard({ locale, currentPath, onClick }) {
     <Link
       href={currentPath}
       locale={locale.code}
-      className="flex items-center gap-2 px-4 py-2 text-sm"
+      className="hover:text-primary flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300"
       onClick={onClick}
     >
       <Image src={locale.flagImg} alt={locale.label} width={16} height={16} />

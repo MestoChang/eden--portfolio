@@ -17,7 +17,7 @@ const LanguageSwitcher = ({ locale }) => {
   return (
     <div className="relative w-fit min-w-24" ref={switcherRef}>
       <button
-        className="flex w-full items-center gap-1 px-4 py-2 text-sm"
+        className="hover:text-primary flex items-center gap-2 px-4 py-2 text-sm transition-all duration-300"
         onClick={() => setIsOpen(!isOpen)}
       >
         <AiOutlineGlobal />
