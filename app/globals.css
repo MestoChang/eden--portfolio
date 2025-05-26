@@ -29,6 +29,10 @@ textarea {
   @apply w-full rounded-md bg-gray-800/50 px-4 py-4 text-sm placeholder:text-teal-100/50 md:text-base;
 }
 
+/* html style end =====  */
+
+/* element style start ===== */
+
 .cta-button {
   @apply bg-background relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-gray-700 px-4 py-4;
 }
@@ -37,9 +41,10 @@ textarea {
   @apply relative flex min-h-fit w-full items-center justify-center p-6;
 }
 
-/* html style end =====  */
+.tag {
+  @apply text-primary border-primary/50 rounded-full border bg-gray-900 px-3 py-1 text-sm;
+}
 
-/* element style start ===== */
 .link {
   @apply hover:text-primary transition-all duration-300 hover:underline;
 }
