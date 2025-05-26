@@ -14,7 +14,7 @@ export default function Error({ error, reset }) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-8 text-center">
       <h2 className="mb-4 text-2xl font-bold">{t('title')}</h2>
-      <p className="mb-4">{error.description}</p>
+      <p className="mb-4">{t('description')}</p>
     </div>
   );
 }

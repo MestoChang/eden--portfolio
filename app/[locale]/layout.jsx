@@ -2,6 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import Header from '@/components/base/Header';
 import Footer from '@/components/base/Footer';
 import { getMessages, handleMessagesError } from '@/i18n/utils';
+
 import '../globals.css';
 
 export function generateStaticParams() {
