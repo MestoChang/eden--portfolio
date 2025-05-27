@@ -7,7 +7,10 @@
 
 @theme {
   --color-primary: #2fff7f;
-  --color-secondary: #23272e;
+  --color-primary-dark: #0be881;
+  --color-primary-text: #223c3b;
+  --color-secondary: #223c3b;
+  --color-secondary-dark: #101c1c;
   --color-danger: #ff4d4f;
   --color-background: #10151a;
   --color-foreground: #ededed;
@@ -24,18 +27,17 @@ label {
   @apply mb-2 block;
 }
 
-input,
+input {
+  @apply placeholder:text-foreground/50 bg-secondary/20 ring-primary-dark w-full rounded-full px-6 py-3 text-sm focus:ring-2 focus:outline-none md:text-base;
+}
+
 textarea {
-  @apply w-full rounded-md bg-gray-800/50 px-4 py-4 text-sm placeholder:text-teal-100/50 md:text-base;
+  @apply placeholder:text-foreground/50 bg-secondary/20 ring-primary-dark w-full rounded-md px-6 py-3 text-sm focus:ring-2 focus:outline-none md:text-base;
 }
 
 /* html style end =====  */
 
 /* element style start ===== */
-
-.cta-button {
-  @apply bg-background relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-gray-700 px-4 py-4;
-}
 
 .section {
   @apply relative flex min-h-fit w-full items-center justify-center p-6;
@@ -49,4 +51,101 @@ textarea {
   @apply hover:text-primary transition-all duration-300 hover:underline;
 }
 
+.primary-button {
+  @apply bg-primary text-primary-text cursor-pointer rounded-full px-4 py-2 transition-all duration-300 hover:opacity-80;
+}
+
+.secondary-button {
+  @apply bg-secondary text-foreground cursor-pointer rounded-full px-4 py-2 transition-all duration-300 hover:opacity-80;
+}
+
 /* element style end ===== */
+
+/* ===== 動畫效果 ===== */
+/* Hero text slider starts */
+.slide {
+  display: inline-block;
+  flex-direction: column;
+  transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: wordSlider 21s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+}
+
+@keyframes wordSlider {
+  0% {
+    transform: translateY(0.5%);
+  }
+  12.5% {
+    transform: translateY(-12.5%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  37.5% {
+    transform: translateY(-37.5%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  62.5% {
+    transform: translateY(-62.5%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
+  87.5% {
+    transform: translateY(-87.5%);
+  }
+}
+
+/* ===== 漸變效果 ===== */
+.gradient-line {
+  width: 2px;
+  background: linear-gradient(
+    0deg,
+    rgba(69, 222, 196, 0) 0%,
+    #62e0ff 25%,
+    #52aeff 37.51%,
+    #fd5c79 62.83%,
+    #6d45ce 92.91%
+  );
+}
+
+.gradient-edge:nth-of-type(1) {
+  left: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.gradient-edge:nth-of-type(2) {
+  right: 0;
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* ===== 跑馬燈效果 ===== */
+.marquee {
+  width: 100dvw;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-box {
+  display: flex;
+  align-items: center;
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  animation: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}

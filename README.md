@@ -1,25 +1,28 @@
-# Eden Portfolio
+# Eden's Portfolio
 
-這是一個使用 Next.js 13+ 和 next-intl 建構的多語言個人作品集網站。
+## 專案概述
 
-## 功能特點
-
-- 🌐 多語言支援（英文和繁體中文）
-- 🎨 現代化的 UI 設計
-- 📱 響應式設計
-- ⚡ 使用 Next.js 13+ App Router
-- 🎯 SEO 優化
-- 📦 模組化的專案結構
+這是一個使用 Next.js 15 建立的個人作品集網站，支援多語言（繁體中文和英文），並整合了 3D 動畫效果。
 
 ## 技術棧
 
-- Next.js 13+
-- React
-- Tailwind CSS
-- next-intl
-- TypeScript
+- **框架**: Next.js 15.3.2
+- **UI 庫**: React 19
+- **樣式**: Tailwind CSS 4.1.7
+- **3D 渲染**: Three.js, React Three Fiber
+- **動畫**: GSAP
+- **國際化**: next-intl
+- **表單處理**: EmailJS
+- **程式碼品質**: ESLint, Prettier
+
+## 環境需求
+
+- Node.js 18.0.0 或更高版本
+- npm 或 yarn 套件管理器
 
 ## 開始使用
+
+### 1. 安裝與設定
 
 1. 克隆專案：
 
@@ -32,15 +35,31 @@ cd eden--portfolio
 
 ```bash
 npm install
+# 或
+yarn install
 ```
 
-3. 啟動開發伺服器：
+3. 環境變數設定：
+   創建 `.env.local` 文件並添加：
 
-```bash
-npm run dev
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-4. 在瀏覽器中打開 [http://localhost:3000](http://localhost:3000)
+### 2. 開發指令
+
+- `npm run dev`: 啟動開發伺服器（使用 Turbopack）
+- `npm run build`: 建置專案
+- `npm run start`: 啟動生產環境伺服器
+- `npm run lint`: 執行程式碼檢查
+- `npm run format`: 格式化程式碼
+- `npm run format:check`: 檢查程式碼格式
+
+### 3. 開發工具
+
+- **程式碼格式化**: Prettier
+- **程式碼檢查**: ESLint
+- **版本控制**: Git
 
 ## 專案結構
 
@@ -101,6 +120,15 @@ eden--portfolio/
 └── postcss.config.js   # PostCSS 設定
 ```
 
+## 主要功能
+
+- 響應式設計
+- 多語言支援（繁體中文/英文）
+- 3D 動畫效果
+- 表單提交功能
+- 動態路由
+- SEO 優化
+
 ## 多語言設定
 
 專案使用 next-intl 進行多語言管理。主要設定文件包括：
@@ -132,52 +160,6 @@ export const routing = defineRouting({
 });
 ```
 
-### 3. i18n/utils.js
-
-```javascript
-import { notFound } from 'next/navigation';
-
-export async function getMessages(locale) {
-  try {
-    const messages = {
-      common: (await import(`../messages/${locale}/common.json`)).default,
-      home: (await import(`../messages/${locale}/home.json`)).default,
-      about: (await import(`../messages/${locale}/about.json`)).default,
-      projects: (await import(`../messages/${locale}/projects.json`)).default,
-      error: (await import(`../messages/${locale}/error.json`)).default,
-    };
-    return messages;
-  } catch (error) {
-    throw new Error(`Failed to load messages for locale: ${locale}`);
-  }
-}
-
-export function handleMessagesError(error) {
-  if (error instanceof Error) {
-    notFound();
-  }
-  throw error;
-}
-```
-
-## 專案頁面結構
-
-專案頁面支援兩種形式：
-
-### 1. 動態路由專案頁面 (`[slug]`)
-
-- 使用 Next.js 動態路由
-- 適合結構相似的專案頁面
-- 支援多語系內容
-- 使用統一的模板
-
-### 2. 自訂專案頁面 (`custom-project`)
-
-- 完全自訂的頁面結構
-- 獨立的資料管理
-- 支援多語系內容
-- 可以根據需求自由設計
-
 ## 開發指南
 
 ### 1. 新增動態路由專案
@@ -196,14 +178,6 @@ export function handleMessagesError(error) {
 
 1. 在 `messages` 目錄下找到對應的語言資料夾
 2. 在相應的 JSON 文件中添加新的翻譯
-
-## 環境變數
-
-創建 `.env.local` 文件並添加以下變數：
-
-```env
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
-```
 
 ## 部署
 
