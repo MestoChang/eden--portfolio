@@ -45,7 +45,7 @@ const ProjectCard = ({ project, slug, locale }) => {
           href={project.metadata.demo}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary hover:text-primary/80 inline-block font-medium"
+          className="text-primary hover:text-primary-dark inline-block font-medium"
         >
           Demo →
         </a>
@@ -56,9 +56,10 @@ const ProjectCard = ({ project, slug, locale }) => {
   return (
     <div
       key={project.slug}
-      className="overflow-hidden rounded-lg bg-gray-950 shadow-lg transition-transform hover:scale-105"
+      className="border-primary overflow-hidden rounded-lg border bg-gray-950 shadow-lg transition-transform duration-200 hover:translate-y-1"
     >
-      <div className="h-48 w-full bg-gradient-to-r from-blue-500 to-purple-500" />
+      {/* Note: replace to IMG */}
+      <div className="bg-primary/50 h-48 w-full" />
       <div className="p-6">
         {renderHeader()}
         {renderTags()}
