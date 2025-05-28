@@ -62,7 +62,7 @@ const Header = ({ locale }) => {
 
   return (
     <header className="bg-background/80 border-secondary sticky top-0 z-50 border-b backdrop-blur-sm">
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between p-6">
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between p-6">
         {/* 網站標誌 */}
         <div className="min-w-fit">
           <Link href="/" className="text-foreground text-base font-bold md:text-xl">

@@ -53,7 +53,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-background/80 border-secondary border-t backdrop-blur-sm">
-      <div className="mx-auto w-full max-w-6xl px-6 py-8 text-xs md:py-12">
+      <div className="mx-auto w-full max-w-7xl px-6 py-8 text-xs md:py-12">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* 社交媒體圖標區域 */}
           <div className="flex gap-4">{renderSocialIcons()}</div>

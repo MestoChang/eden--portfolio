@@ -58,13 +58,14 @@ const Contact = () => {
     <section id="contact" className="section">
       <div className="h-full w-full px-5 md:px-10">
         {/* 表單標題 */}
-        <TitleHeader
+        {/* <TitleHeader
           title="Get in Touch – Let's Connect"
           sub="💬 Have questions or ideas? Let's talk! 🚀"
-        />
+        /> */}
 
         {/* 聯絡表單 */}
-        <div className="mt-16">
+        {/* <div className="mt-16"> */}
+        <div>
           <form ref={formRef} onSubmit={handleSubmit} className="flex w-full flex-col gap-7">
             {/* 姓名輸入 */}
             <div>

@@ -10,14 +10,14 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { HeroSection, ShowcaseSection, TechStack } from '@/components/sections/index-page';
+import { HeroSection, ShowcaseSection, TechStack, Contact } from '@/components/sections/index-page';
 
 const HomePage = () => {
   const t = useTranslations('home');
 
   return (
-    <div className="min-h-screen">
-      {/* 主要展示區 */}
+    <div>
+      {/* Intro */}
       <HeroSection />
 
       {/* 作品展示區 */}
@@ -25,6 +25,9 @@ const HomePage = () => {
 
       {/* 技術棧展示區 */}
       <TechStack />
+
+      {/* 聯絡表單區塊 */}
+      <Contact />
     </div>
   );
 };

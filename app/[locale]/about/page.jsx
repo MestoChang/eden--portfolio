@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { Timeline, Contact } from '@/components/sections/about';
+import { Timeline } from '@/components/sections/about';
 
 const AboutMePage = () => {
   const t = useTranslations('about');
@@ -22,9 +22,6 @@ const AboutMePage = () => {
 
       {/* 時間軸區塊 */}
       <Timeline />
-
-      {/* 聯絡表單區塊 */}
-      <Contact />
     </div>
   );
 };
